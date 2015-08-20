@@ -5,7 +5,7 @@ Personnal vim settings for web developpement.
 
 **To use**
 * Copy the .vimrc file to your home `cp .vimrc ~/`
-* Untar the .vim folder in your home `tar -xvf .vim -C ~/`
+* Untar the .vim folder in your home `tar -xvf .vim.tar.gz C ~/`
 * Restart your vim if it was already launched.
 
 _In case of graphical glitches in the top/bottom bar_
