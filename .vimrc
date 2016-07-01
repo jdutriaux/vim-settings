@@ -1,96 +1,5 @@
-" http://www.entuall.info/blog/public/config/vimrc
-"
-" Liste des racourcis clavier:
-"
-"   * Touches fonctions
-"
-"é       F2 - paste mode
-"       F3 - desactivate search HL
-"
-"   * Déplacements entre buffers
-"
-"       TAB - next buffer
-"       Shift-TAB - previous buffer
-"
-"   * Window resizing
-"       F4 - vertical +1
-"       F5 - vertical -1
-"       F6 - horizontal +1
-"       F7 - horizontal -1
-"
-"   * Insertion mode
-"       TAB : insert indent or open completion window if cursor is after a
-"             character.
-"       C-c : cancel completion
-"
-"   * Misc
-"       Leader : !
-"       !s - recharge le .vimrc
-"       !t - Affiche/cache la liste des tags
-"       !n - Toggle NerdTree
-"
-"   * Movement
-"       !!w / !!b / !!e / !!s ... > Easymotion
-"
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Général
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""" VUNDLE
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-call vundle#rc()
-"
-" " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-
-" Interface plugins
-Bundle 'bling/vim-airline'
-Bundle 'nacitar/terminalkeys.vim'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-
-
-" Language specific plugins
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jdonaldson/vaxe'
-
-" Utilities
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'majutsushi/tagbar'
-Bundle 'dantler/vim-alternate'
-Bundle 'moll/vim-bbye'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/powerline'
-
-Bundle 'vhdirk/vim-cmake'
-
-Bundle 'lervag/vim-latex'
-Bundle 'moll/vim-node'
-Bundle 'godlygeek/tabular'
-Bundle 'vim-scripts/Auto-Pairs'
-Bundle 'Yggdroot/indentLine'
-" Syntax highlight coloration
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jonathanfilip/vim-lucius'
-Bundle 'tomasr/molokai'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'jelera/vim-javascript-syntax'
-
-" Writing
-Bundle 'tpope/vim-markdown'
-Bundle 'mikewest/vimroom'
-Bundle 'vim-pandoc/vim-pandoc'
-"""""" END VUNDLE
+source ~/.vim_modules
 
 """""" General
 set nocompatible
@@ -114,7 +23,7 @@ nnoremap <leader>s :source ~/.vimrc<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nu              " numérotation des lignes ...
+set number          " numérotation des lignes ...
 set numberwidth=1   " ... mais pas plus de place que nécessaire !
 set ruler           " Montre la position du curseur
 set shm=tToOIA      " Formatage des messages
@@ -123,6 +32,7 @@ set showcmd         " affiche les commandes incomplètes
 set wildmenu        " Menu pour la complétion des commandes
 set wildmode=list:longest
 set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
+set lazyredraw
 
 " Silence !
 set noerrorbells
@@ -200,8 +110,7 @@ set shiftround      " Les tabs sont toujours multiples de shiftwidth (<<, >>)
 
 " filetype plugin indent on
 
-" Linux Kernel coding standard
-autocmd FileType c set noexpandtab tabstop=8 shiftwidth=8
+autocmd FileType c set noexpandtab tabstop=4 shiftwidth=4
 
 " Pep 8 style FTW
 autocmd FileType python,py,javascript,js,coffee,haxe set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
@@ -322,10 +231,11 @@ set autoread        " recharge auto quand un fichier est modifié
 set autowrite       " sauvegarde auto quand on quitte ou qu'on change de buffer
 
 " cf :help backup
-set nobackup
-"set writebackup
-"set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/swap
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
 " Le répertoire courant est celui du fichier du buffer courant
 "autocmd BufEnter * :lcd %:p:h
@@ -337,9 +247,19 @@ set autochdir
 " Tagbar
 nnoremap <silent> <leader>t :TagbarToggle<cr>
 
+" Toggle gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" ag.vim
+nnoremap <leader>a :Ag
+
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0 " Open in new buffer
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' "Use ag (Faster & lighter)
 
 " Vim + tmux
 let g:tmux_navigator_no_mappings = 1
@@ -367,7 +287,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 
 " Tmuxline
-let g:tmuxline_powerline_separators = 1
+let g:tmuxline_powerline_separators = 0
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -405,9 +325,6 @@ map <silent> <S-E> <Plug>CamelCaseMotion_e
 " tComment
 map <C-e> <C-_><C-_>
 
-" Vimroom
-
-
 " Vim Cmake
 map <leader>c :CMake<cr>:make<cr>
 
@@ -416,3 +333,6 @@ map <leader>n :NERDTreeToggle<cr>
 
 " Indentline
 let g:indentLine_char = "│"
+
+set listchars=tab:\ \ ,nbsp:•
+set list

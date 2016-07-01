@@ -1,0 +1,58 @@
+""""" VUNDLE
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+call vundle#begin()
+"
+" " let Vundle manage Vundle, required
+Bundle 'VundleVim/Vundle.vim'
+
+" Interface plugins
+Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Bundle 'nacitar/terminalkeys.vim'
+Bundle 'edkolev/tmuxline.vim'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'sjl/gundo.vim'
+
+" Language specific plugins
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'jdonaldson/vaxe'
+
+" Utilities
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'majutsushi/tagbar'
+Bundle 'dantler/vim-alternate'
+Bundle 'moll/vim-bbye'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/powerline'
+Bundle 'vhdirk/vim-cmake'
+Bundle 'lervag/vim-latex'
+Bundle 'moll/vim-node'
+Bundle 'godlygeek/tabular'
+Bundle 'vim-scripts/Auto-Pairs'
+Bundle 'Yggdroot/indentLine'
+Bundle 'rking/ag.vim'
+
+" Syntax highlight coloration
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'tomasr/molokai'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'jelera/vim-javascript-syntax'
+
+" Writing
+Bundle 'tpope/vim-markdown'
+Bundle 'mikewest/vimroom'
+Bundle 'vim-pandoc/vim-pandoc'
+"""""" END VUNDLE
+
+call vundle#end()

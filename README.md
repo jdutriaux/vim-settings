@@ -4,9 +4,8 @@ vim-settings
 Personnal vim settings for web developpement.
 
 **To use**
-* Copy the .vimrc file to your home `cp .vimrc ~/`
-* Untar the .vim folder in your home `tar -xvf .vim.tar.gz C ~/`
-* Restart your vim if it was already launched.
+* Clone the repository
+* Execute `install.sh` script
 
 _In case of graphical glitches in the top/bottom bar_
 * First (and easiest) solution : disable powerline font.
