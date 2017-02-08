@@ -39,7 +39,6 @@ Bundle 'lervag/vim-latex'
 Bundle 'moll/vim-node'
 Bundle 'godlygeek/tabular'
 Bundle 'vim-scripts/Auto-Pairs'
-Bundle 'Yggdroot/indentLine'
 Bundle 'rking/ag.vim'
 
 " Syntax highlight coloration

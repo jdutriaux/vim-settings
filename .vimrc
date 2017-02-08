@@ -119,9 +119,6 @@ autocmd FileType html,xhtml,xml,css,mako,smarty setl tabstop=2
 autocmd FileType html,xhtml,xml,css,mako,smarty setl softtabstop=2
 autocmd FileType html,xhtml,xml,css,mako,smarty setl shiftwidth=2
 
-" Supprime automatiquement les espaces de fin de ligne
-autocmd BufWritePre * :%s/\s\+$//e
-
 
 set ff=unix
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -287,7 +284,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 
 " Tmuxline
-let g:tmuxline_powerline_separators = 0
+let g:tmuxline_powerline_separators = 1
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
