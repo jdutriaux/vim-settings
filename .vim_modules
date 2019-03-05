@@ -14,10 +14,9 @@ Bundle 'VundleVim/Vundle.vim'
 " Interface plugins
 Bundle 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Bundle 'nacitar/terminalkeys.vim'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'sjl/gundo.vim'
+Bundle 'mbbill/undotree'
 
 " Language specific plugins
 Bundle 'kchmck/vim-coffee-script'
@@ -34,12 +33,12 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/powerline'
-Bundle 'vhdirk/vim-cmake'
 Bundle 'lervag/vim-latex'
 Bundle 'moll/vim-node'
 Bundle 'godlygeek/tabular'
-Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'rking/ag.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Syntax highlight coloration
 Bundle 'altercation/vim-colors-solarized'

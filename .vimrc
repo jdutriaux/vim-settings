@@ -20,6 +20,8 @@ let g:maplocalleader = "!"
 " Recharger et éditer le .vimrc
 nnoremap <leader>s :source ~/.vimrc<cr>
 
+set shell=/bin/bash
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,9 +104,9 @@ set smartindent
 
 set smarttab        " 'shiftwidth' en début en ligne, '(soft)tabstop' ailleurs
 set expandtab       " Utilise des espaces, et non des tabulations
-set tabstop=2       " Indentation de 4 espaces
-set softtabstop=2   " Nombre d'espaces pour une tabulation en mode édition
-set shiftwidth=2    " Nombre d'espaces pour indent (<<, >>)
+set tabstop=4       " Indentation de 4 espaces
+set softtabstop=4   " Nombre d'espaces pour une tabulation en mode édition
+set shiftwidth=4    " Nombre d'espaces pour indent (<<, >>)
 set shiftround      " Les tabs sont toujours multiples de shiftwidth (<<, >>)
 
 
@@ -113,7 +115,7 @@ set shiftround      " Les tabs sont toujours multiples de shiftwidth (<<, >>)
 autocmd FileType c set noexpandtab tabstop=4 shiftwidth=4
 
 " Pep 8 style FTW
-autocmd FileType python,py,javascript,js,coffee,haxe set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+" autocmd FileType python,py,javascript,js,coffee,haxe set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 
 autocmd FileType html,xhtml,xml,css,mako,smarty setl tabstop=2
 autocmd FileType html,xhtml,xml,css,mako,smarty setl softtabstop=2
@@ -333,3 +335,9 @@ let g:indentLine_char = "│"
 
 set listchars=tab:\ \ ,nbsp:•
 set list
+
+nnoremap <F5> :UndotreeToggle<cr>
+
+if !has('gui_running')
+    map "n" <A-n>
+endif
