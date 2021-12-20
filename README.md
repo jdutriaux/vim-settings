@@ -1,7 +1,7 @@
 vim-settings
 ============
 
-Personnal vim settings for web developpement.
+Personnal vim settings for developpement.
 
 **To use**
 * Clone the repository
